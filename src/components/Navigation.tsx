@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import {Github} from "lucide-react";
 
 const Navigation = () => {
     const [activeSection, setActiveSection] = useState('home');
@@ -49,7 +50,10 @@ const Navigation = () => {
                             whileHover={{ scale: 1.05 }}
                             className="text-cyber-blue font-cyber text-xl"
                         >
-                            <span className="animate-glow">CYBER.DEV</span>
+                            <span className="inline-flex items-center gap-2">
+                                <span className="text-sm text-white/70">connected to</span>
+                                <span className="animate-glow inline-flex items-center gap-1">RudyStark <Github className="animate-glow w-4 h-4" /></span>
+                            </span>
                         </motion.div>
 
                         <div className="hidden md:flex space-x-8">
