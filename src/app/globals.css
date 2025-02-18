@@ -116,3 +116,14 @@ body::before {
   opacity: 1;
 }
 
+.swiper-pagination-bullet {
+  background: #ffffff50 !important;
+}
+.swiper-pagination-bullet-active {
+  background: #00fff9 !important;
+}
+.swiper-button-next,
+.swiper-button-prev {
+  color: #00fff9 !important;
+}
+
