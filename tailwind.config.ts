@@ -32,8 +32,8 @@ export default {
         'cyber-gray': '#1a1a1a',
       },
       fontFamily: {
-        cyber: ['Orbitron', 'sans-serif'],
-        text: ['Rajdhani', 'sans-serif'],
+        cyber: ['var(--font-orbitron)'],
+        text: ['var(--font-rajdhani)'],
       },
       animation: {
         'glitch': 'glitch 1s linear infinite',

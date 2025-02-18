@@ -1,6 +1,19 @@
 import './globals.css'
 import type { Metadata } from 'next'
 import { Toaster } from "@/components/ui/toaster"
+import { Orbitron, Rajdhani } from 'next/font/google'
+
+const orbitron = Orbitron({
+    subsets: ['latin'],
+    weight: ['400', '500', '600', '700'],
+    variable: '--font-orbitron',
+});
+
+const rajdhani = Rajdhani({
+    subsets: ['latin'],
+    weight: ['300', '400', '500', '600', '700'],
+    variable: '--font-rajdhani',
+});
 
 export const metadata: Metadata = {
     title: 'Portfolio Rudy Saksik',
@@ -13,13 +26,7 @@ export default function RootLayout({
     children: React.ReactNode
 }) {
     return (
-        <html lang="fr">
-        <head>
-            <link
-                href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&family=Rajdhani:wght@300;400;500;600;700&display=swap"
-                rel="stylesheet"
-            />
-        </head>
+        <html lang="fr" className={`${orbitron.variable} ${rajdhani.variable}`}>
         <body className="bg-cyber-dark text-white">
         {children}
         <Toaster />

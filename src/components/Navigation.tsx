@@ -17,10 +17,12 @@ const Navigation = () => {
 
             const sections = document.querySelectorAll('section[id]');
             sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (window.scrollY >= (sectionTop - sectionHeight/3)) {
-                    setActiveSection(section.id);
+                const sectionElement = section as HTMLElement; // Ajout de l'assertion de type
+                const sectionTop = sectionElement.offsetTop;
+                const sectionHeight = sectionElement.clientHeight;
+
+                if (window.scrollY >= (sectionTop - sectionHeight / 3)) {
+                    setActiveSection(sectionElement.id);
                 }
             });
         };

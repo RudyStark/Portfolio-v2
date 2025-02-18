@@ -123,7 +123,7 @@ const Skills = () => {
                     transition={{ duration: 0.6, delay: 0.8 }}
                     className="mt-16 space-y-8"
                 >
-                    {Object.entries(additionalSkills).map(([category, skills], groupIndex) => (
+                    {Object.entries(additionalSkills).map(([category, skills], _groupIndex) => (
                         <div key={category} className="text-center">
                             <h3 className="text-2xl font-cyber text-cyber-pink mb-6">
                                 {category}

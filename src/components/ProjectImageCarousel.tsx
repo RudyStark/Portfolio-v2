@@ -4,6 +4,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 import { useState } from 'react';
 import FullScreenImage from './FullScreenImage';
+import Image from 'next/image';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
@@ -36,11 +37,16 @@ const ProjectImageCarousel = ({ images, color }: ProjectImageCarouselProps) => {
                                 className="relative aspect-video w-full cursor-zoom-in"
                                 onClick={() => setSelectedImage(image)}
                             >
-                                <img
-                                    src={image}
-                                    alt={`Project view ${index + 1}`}
-                                    className="object-cover w-full h-full"
-                                />
+                                <div className="relative w-full h-full">
+                                    <Image
+                                        src={image}
+                                        alt={`Project view ${index + 1}`}
+                                        fill
+                                        className="object-cover"
+                                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                        priority={index === 0}
+                                    />
+                                </div>
                                 <div className={`absolute inset-0 bg-${color}/10 
                                                hover:bg-${color}/0 transition-all duration-300`} />
 

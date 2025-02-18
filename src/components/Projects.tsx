@@ -8,10 +8,34 @@ import { Dialog, Transition } from '@headlessui/react';
 import { Fragment } from 'react';
 import ProjectImageCarousel from './ProjectImageCarousel';
 
-const projects = [
+interface Project {
+    title: string;
+    subtitle: string;
+    description: string;
+    technologies: string[];
+    images: string[];
+    thumbnail: string;
+    github: string;
+    demo: string;
+    color: string;
+    details: string[];
+}
+
+interface ProjectCardProps {
+    project: Project;
+    onClick: () => void;
+}
+
+interface ProjectDialogProps {
+    isOpen: boolean;
+    closeModal: () => void;
+    project: Project | null;
+}
+
+const projects: Project[] = [
     {
-        title: "E-commerce Cyberpunk",
-        subtitle: "Plateforme e-commerce futuriste",
+        title: "E-commerce Gaming",
+        subtitle: "Plateforme e-commerce de jeux vidéo",
         description: "Plateforme e-commerce spécialisée dans la vente de jeux vidéo avec un design gaming immersif. L'interface utilisateur, pensée pour refléter l'univers du gaming, intègre des animations sophistiquées, une gestion avancée des clés digitales et un système de paiement sécurisé. Le projet propose une expérience d'achat fluide avec des fonctionnalités comme la livraison instantanée des clés de jeux et un backoffice complet pour la gestion des produits.",
         technologies: ["Symfony 7.1", "Bootstrap 5", "Stimulus", "Stripe", "Docker", "Mailjet", "DomPDF", "EasyAdmin", "CRON", "JWT", "Webpack", "MySQL", "Nginx", "PHPUnit", "SASS"],
         images: [
@@ -39,8 +63,7 @@ const projects = [
         subtitle: "Projet en cours de développement",
         description: "Ce projet est actuellement en cours de téléchargement. Veuillez revenir plus tard.",
         technologies: [],
-        images: [
-        ],
+        images: [],
         thumbnail: "/images/project2/thumbnail.png",
         github: "",
         demo: "",
@@ -54,8 +77,7 @@ const projects = [
         subtitle: "Projet en cours de développement",
         description: "Ce projet est actuellement en cours de téléchargement. Veuillez revenir plus tard.",
         technologies: [],
-        images: [
-        ],
+        images: [],
         thumbnail: "/images/project3/thumbnail.png",
         github: "",
         demo: "",
@@ -66,7 +88,7 @@ const projects = [
     }
 ];
 
-const ProjectCard = ({ project, onClick }) => {
+const ProjectCard = ({ project, onClick }: ProjectCardProps) => {
     return (
         <motion.div
             className="group cursor-pointer"
@@ -94,7 +116,7 @@ const ProjectCard = ({ project, onClick }) => {
     );
 };
 
-const ProjectDialog = ({ isOpen, closeModal, project }) => {
+const ProjectDialog = ({ isOpen, closeModal, project }: ProjectDialogProps) => {
     if (!project) return null;
 
     return (
@@ -139,10 +161,12 @@ const ProjectDialog = ({ isOpen, closeModal, project }) => {
                                 </Dialog.Title>
 
                                 <div className="grid md:grid-cols-2 gap-8">
-                                    <ProjectImageCarousel
-                                        images={project.images}
-                                        color={project.color}
-                                    />
+                                    {project.images.length > 0 && (
+                                        <ProjectImageCarousel
+                                            images={project.images}
+                                            color={project.color}
+                                        />
+                                    )}
 
                                     <div className="space-y-6">
                                         <p className="text-white/80 font-text">{project.description}</p>
@@ -159,43 +183,49 @@ const ProjectDialog = ({ isOpen, closeModal, project }) => {
                                             ))}
                                         </div>
 
-                                        <div className="flex flex-wrap gap-2">
-                                            {project.technologies.map((tech, index) => (
-                                                <span
-                                                    key={index}
-                                                    className={`px-3 py-1 text-sm font-text bg-cyber-dark text-${project.color} 
-                                                            border border-${project.color}/30 animate-blink`}
-                                                >
-                                                    {tech}
-                                                </span>
-                                            ))}
-                                        </div>
+                                        {project.technologies.length > 0 && (
+                                            <div className="flex flex-wrap gap-2">
+                                                {project.technologies.map((tech, index) => (
+                                                    <span
+                                                        key={index}
+                                                        className={`px-3 py-1 text-sm font-text bg-cyber-dark text-${project.color} 
+                                                                border border-${project.color}/30 animate-blink`}
+                                                    >
+                                                        {tech}
+                                                    </span>
+                                                ))}
+                                            </div>
+                                        )}
 
                                         <div className="flex gap-4 pt-4">
-                                            <a
-                                                href={project.github}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                className={`inline-flex items-center gap-2 px-4 py-2 bg-transparent 
-                                                        border border-${project.color} text-${project.color} 
-                                                        hover:bg-${project.color} hover:text-cyber-dark 
-                                                        transition-all duration-300`}
-                                            >
-                                                <Github className="w-4 h-4" />
-                                                <span>Code</span>
-                                            </a>
-                                            <p
-                                                href={project.demo}
-                                                target=""
-                                                rel="noopener noreferrer"
-                                                className={`inline-flex items-center gap-2 px-4 py-2 bg-transparent 
-                                                        border border-${project.color} text-gray-200
-                                                        hover:bg-${project.color} hover:text-cyber-dark 
-                                                        transition-all duration-300`}
-                                            >
-                                                <ExternalLink className="w-4 h-4" />
-                                                <span>Demo</span>
-                                            </p>
+                                            {project.github && (
+                                                <a
+                                                    href={project.github}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className={`inline-flex items-center gap-2 px-4 py-2 bg-transparent 
+                                                            border border-${project.color} text-${project.color} 
+                                                            hover:bg-${project.color} hover:text-cyber-dark 
+                                                            transition-all duration-300`}
+                                                >
+                                                    <Github className="w-4 h-4" />
+                                                    <span>Code</span>
+                                                </a>
+                                            )}
+                                            {project.demo && (
+                                                <a
+                                                    href={project.demo}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className={`inline-flex items-center gap-2 px-4 py-2 bg-transparent 
+                                                            border border-${project.color} text-${project.color} 
+                                                            hover:bg-${project.color} hover:text-cyber-dark 
+                                                            transition-all duration-300`}
+                                                >
+                                                    <ExternalLink className="w-4 h-4" />
+                                                    <span>Demo</span>
+                                                </a>
+                                            )}
                                         </div>
                                     </div>
                                 </div>
@@ -209,7 +239,7 @@ const ProjectDialog = ({ isOpen, closeModal, project }) => {
 };
 
 const Projects = () => {
-    const [selectedProject, setSelectedProject] = useState(null);
+    const [selectedProject, setSelectedProject] = useState<Project | null>(null);
     const [ref, inView] = useInView({
         triggerOnce: true,
         threshold: 0.1,

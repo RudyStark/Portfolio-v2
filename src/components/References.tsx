@@ -2,25 +2,28 @@
 
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { Users } from 'lucide-react';
+import { Phone, Mail } from 'lucide-react';
 
 const references = [
     {
         name: "Souhel Mohammad",
-        position: "PO",
+        position: "Product Owner",
         tel: "06.02.24.94.11",
+        email: "souhel.mohammad@teksial.com",
         color: "cyber-blue"
     },
     {
         name: "Rayan Venault",
         position: "Manager",
         tel: "06.35.45.75.39",
+        email: "rayan.venault@teksial.com",
         color: "cyber-pink"
     },
     {
         name: "Charif Ayouni",
         position: "Lead Dev",
-        tel: "06.23.91.97.11",
+        tel: "N/A",
+        email: "charif.ayouni@gmail.com",
         color: "cyber-purple"
     }
 ];
@@ -69,12 +72,28 @@ const References = () => {
                             <div className="text-center">
                                 <h3 className={`text-xl font-cyber text-${ref.color} mb-2`}>{ref.name}</h3>
                                 <p className="text-white font-text mb-2">{ref.position}</p>
-                                <a
-                                    href={`tel:${ref.tel.replace(/\./g, '')}`}
-                                    className={`text-${ref.color} font-text hover:underline`}
-                                >
-                                    {ref.tel}
-                                </a>
+
+                                {/* Affichage du numéro de téléphone avec icône */}
+                                <div className="flex justify-center items-center gap-2 mb-2">
+                                    <Phone className={`text-${ref.color}`} />
+                                    <a
+                                        href={`tel:${ref.tel.replace(/\./g, '')}`}
+                                        className={`text-${ref.color} font-text hover:underline`}
+                                    >
+                                        {ref.tel}
+                                    </a>
+                                </div>
+
+                                {/* Affichage de l'email avec icône */}
+                                <div className="flex justify-center items-center gap-2">
+                                    <Mail className={`text-${ref.color}`} />
+                                    <a
+                                        href={`mailto:${ref.email}`}
+                                        className={`text-${ref.color} font-text hover:underline`}
+                                    >
+                                        {ref.email}
+                                    </a>
+                                </div>
                             </div>
                         </motion.div>
                     ))}

@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Github, Linkedin, Phone, FileDown } from 'lucide-react';
+import { Github, Linkedin, FileDown } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
 const Header = () => {
@@ -93,7 +93,7 @@ const Header = () => {
                             className="flex justify-center gap-4"
                         >
                             <a
-                                href="https://github.com/votre-username"
+                                href="https://github.com/RudyStark"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="px-6 py-2 bg-transparent border-2 border-cyber-blue text-cyber-blue font-cyber
@@ -128,7 +128,7 @@ const Header = () => {
                             transition={{ delay: 0.7 }}
                         >
                             <a
-                                href="/cv.pdf"
+                                href="/RUDY_SAKSIK_CV.pdf"
                                 download
                                 className="px-6 py-2 bg-transparent border-2 border-cyber-yellow text-cyber-yellow font-cyber
                      hover:bg-cyber-yellow hover:text-cyber-dark transition-colors duration-300
