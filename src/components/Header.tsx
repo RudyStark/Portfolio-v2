@@ -80,7 +80,7 @@ const Header = () => {
                         transition={{ delay: 0.3 }}
                         className="text-xl text-white/80 max-w-3xl mx-auto mb-8 font-text"
                     >
-                        Développeur PHP/Symfony avec plus de 3 ans d'expérience dans le développement d'applications web robustes et évolutives.
+                        Développeur PHP/Symfony avec plus de 4 ans d'expérience dans le développement d'applications web robustes et évolutives.
                         Spécialisé dans les architectures backend, la gestion d'API RESTful et les solutions cloud.
                     </motion.p>
 
