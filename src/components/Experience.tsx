@@ -7,7 +7,7 @@ const experiences = [
     {
         title: "Développeur Web",
         company: "Teksial Groupe Engie",
-        period: "2021 - 2024",
+        period: "2021 - 2025",
         description: "Développement d'un projet Symfony englobant plusieurs portails spécifiquement conçus pour les secteurs BtoB, BtoC, et BtoBtoC dans le domaine des Certificats d'Économie d'Énergie (CEE).",
         technologies: ["Symfony", "React", "AWS", "Docker", "MySQL"],
         details: [
