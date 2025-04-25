@@ -128,7 +128,7 @@ const Header = () => {
                             transition={{ delay: 0.7 }}
                         >
                             <a
-                                href="/RUDY_SAKSIK_CV.pdf"
+                                href="/"
                                 download
                                 className="px-6 py-2 bg-transparent border-2 border-cyber-yellow text-cyber-yellow font-cyber
                      hover:bg-cyber-yellow hover:text-cyber-dark transition-colors duration-300
