@@ -7,7 +7,7 @@ const experiences = [
     {
         title: "Développeur Web",
         company: "Teksial Groupe Engie",
-        period: "2021 - 2025",
+        period: "2021 - 2024",
         description: "Développement d'un projet Symfony englobant plusieurs portails spécifiquement conçus pour les secteurs BtoB, BtoC, et BtoBtoC dans le domaine des Certificats d'Économie d'Énergie (CEE).",
         technologies: ["Symfony", "React", "AWS", "Docker", "MySQL"],
         details: [
@@ -18,7 +18,7 @@ const experiences = [
     },
     {
         title: "Développeur Web",
-        company: "Dokoyo - freelance",
+        company: "Dokoyo",
         period: "2021",
         description: "Conception et développement d'une plateforme e-commerce basée sur Symfony pour la gestion d'une boutique en ligne spécialisée dans la vente de sous-vêtements.",
         technologies: ["Symfony", "React", "MongoDB", "Docker", "Fabric.js"],
