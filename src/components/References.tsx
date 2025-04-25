@@ -6,25 +6,25 @@ import { Phone, Mail } from 'lucide-react';
 
 const references = [
     {
-        name: "Souhel Mohammad",
-        position: "Product Owner",
-        tel: "06.02.24.94.11",
-        email: "souhel.mohammad@teksial.com",
-        color: "cyber-blue"
-    },
-    {
-        name: "Rayan Venault",
-        position: "Manager",
-        tel: "06.35.45.75.39",
-        email: "rayan.venault@teksial.com",
-        color: "cyber-pink"
-    },
-    {
-        name: "Charif Ayouni",
-        position: "Lead Dev",
+        name: "N/A",
+        position: "N/A",
         tel: "N/A",
-        email: "charif.ayouni@gmail.com",
-        color: "cyber-purple"
+        email: "N/A",
+        color: "N/A"
+    },
+    {
+        name: "N/A",
+        position: "N/A",
+        tel: "N/A",
+        email: "N/A",
+        color: "N/A"
+    },
+    {
+        name: "N/A",
+        position: "N/A",
+        tel: "N/A",
+        email: "N/A",
+        color: "N/A"
     }
 ];
 
